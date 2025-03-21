@@ -1,0 +1,22 @@
+# docker-compose.yaml
+version: '3.8'
+
+services:
+  web:
+    image: arrregator-web:0.0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "18081:18081"  # 主机端口:容器端口
+    environment:
+      - APP_ENV=production
+      - PYTHONUNBUFFERED=1
+      - PYTHONPATH=/app
+
+    networks:
+      - quert-net
+
+networks:
+  quert-net:
+    driver: bridge

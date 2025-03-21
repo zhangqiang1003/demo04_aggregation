@@ -1,0 +1,18 @@
+
+Academic:
+  endpoint: https://api.academic.com/search
+  method: GET
+  parser: academic
+  params:
+    api_key: ${ACADEMIC_API_KEY}
+  headers:
+    Accept: application/json
+
+YouTube:
+  endpoint: https://api.youtube.com/v3/search
+  method: GET
+  parser: youtube
+  params:
+    part: snippet
+    key: ${YOUTUBE_API_KEY}
+    type: video
